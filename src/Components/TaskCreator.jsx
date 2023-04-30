@@ -1,12 +1,13 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
-export const TaskCreator = () => {
+export const TaskCreator = ({ createNewTask }) => {
 
-    const [newTasking, setNewTasking] = useState()
+    const [newTasking, setNewTasking] = useState('')
 
     const handleSubmit = (e) => { /* funcion para capturar los datos */
         e.preventDefault();
-        localStorage.setItem('task', newTasking) //localstorage para guardar "clave"=task y lo que el usuario escribe
+        createNewTask(newTasking);
+        /* localStorage.setItem('task', newTasking) //localstorage para guardar "clave"=task y lo que el usuario escribe */
         setNewTasking(''); //sirve para limpiar el input una vez guardado.  
     }
 
